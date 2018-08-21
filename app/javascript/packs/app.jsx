@@ -4,21 +4,34 @@
 
 import React from 'react'
 import { render } from 'react-dom'
-import Top from './components/Top/Top.jsx'
-import Mypage from './components/Mypage/Mypage.jsx'
+import Top from './components/Top/Top'
+import Mypage from './components/Mypage/Mypage'
+import Subjects from './components/Subjects/Subjects'
+import MypageEdit from './components/MypageEdit/MypageEdit'
+import Accounting from './components/Lessons/Accounting'
+import AccountingStudy from './components/Study/AccountingStudy'
 
-document.addEventListener('DOMContentLoaded', () => {
+console.log(location.pathname)
+document.addEventListener('turbolinks:load', () => {
   const rootComponent = (() => {
     switch (location.pathname) {
       case '/':
         return <Top />
       case '/mypage':
         return <Mypage />
+      case '/subjects':
+        return <Subjects />
+      case '/mypage/edit':
+        return <MypageEdit />
+      case '/subjects/accounting':
+        return <Accounting />
+      case '/accounting/study':
+        return <AccountingStudy />
     }
   })()
 
   render(
     rootComponent,
-    document.body.appendChild(document.createElement('div')),
+    document.getElementById('root'),
   )
 })
