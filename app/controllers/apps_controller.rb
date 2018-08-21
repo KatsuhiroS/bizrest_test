@@ -3,4 +3,8 @@ class AppsController < ApplicationController
   end
   def mypage
   end
+  def subjects
+  end
+  def accounting_study
+  end
 end
