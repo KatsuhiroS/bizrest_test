@@ -4,7 +4,9 @@ import axios from 'axios'
 
 const SignupButton = props => (
   <div>
-    <button>無料登録</button>
+    <button>
+      <a href="/mypage">無料登録</a>
+    </button>
   </div>
 
 )
