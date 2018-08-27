@@ -2,12 +2,12 @@ import React from "react"
 import PropTypes from 'prop-types'
 
 import Header from '../Header/Header'
-import StudySlide from '../StudySlide/StudySlide'
+import StudyModal from '../StudyModal/StudyModal'
 
 const AccountingStudy = props => (
   <div>
     <Header />
-    <StudySlide />
+    <StudyModal />
   </div>
 )
 
