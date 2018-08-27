@@ -1,68 +1,66 @@
-import React from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
-import Modal from "react-modal";
+import Slider from "react-slick"
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    width: "95%",
-    height: "90%",
-    transform: "translate(-50%, -50%)"
+export default class StudySlide extends Component {
+  constructor(props) {
+    super(props);
+    console.log('constructor')
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
   }
-};
+  next(props) {
+    this.slider.slickNext(props);
+  }
+  previous(props) {
+    this.slider.slickPrev(props);
+  }
 
-// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement("div");
+  afterChange(index) {
+    const currentSlide = index;
+    this.props.handleChangeSlide(currentSlide);
+  }
 
-class StudySlide extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      modalIsOpen: true
+  render(props) {
+    const settings = {
+      initialSlide: this.props.currentSlide,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      afterChange: this.afterChange.bind(this),
     };
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#000";
-  }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
-
-  render() {
     return (
       <div>
-        <button onClick={this.openModal}>スライドに戻る</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <button onClick={this.closeModal}>スライドを閉じる</button>
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>会計入門</h2>
-          <div>会計とはうんたらかんたら</div>
-          <form />
-        </Modal>
+        <Slider ref={c => (this.slider = c)} {...settings}>
+          <div key={1}>
+            <h3>1</h3>
+          </div>
+          <div key={2}>
+            <h3>2</h3>
+          </div>
+          <div key={3}>
+            <h3>3</h3>
+          </div>
+          <div key={4}>
+            <h3>4</h3>
+          </div>
+          <div key={5}>
+            <h3>5</h3>
+          </div>
+          <div key={6}>
+            <h3>6</h3>
+          </div>
+        </Slider>
+        <div style={{ textAlign: "center" }}>
+          <button className="button" onClick={this.previous}>
+            Previous
+          </button>
+          <button className="button" onClick={this.next}>
+            Next
+          </button>
+        </div>
       </div>
     );
   }
 }
-
-export default StudySlide
