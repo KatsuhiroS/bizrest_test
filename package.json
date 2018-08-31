@@ -5,8 +5,11 @@
     "@rails/webpacker": "3.5",
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
+    "immutability-helper": "^2.7.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.4.2",
     "react-modal": "^3.5.1",
     "react-slick": "^0.23.1"
