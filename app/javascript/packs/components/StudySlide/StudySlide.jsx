@@ -34,22 +34,13 @@ export default class StudySlide extends Component {
       <div>
         <Slider ref={c => (this.slider = c)} {...settings}>
           <div key={1}>
-            <h3>1</h3>
+            <h2>商品を売り上げた時は、勘定科目「売上高」と売上金額を、貸方（右側）に記入します。</h2>
           </div>
           <div key={2}>
-            <h3>2</h3>
+            <h2>現金を受け取った時は、勘定科目「現金」と受取金額を、借方（左側）に記入します。</h2>
           </div>
           <div key={3}>
-            <h3>3</h3>
-          </div>
-          <div key={4}>
-            <h3>4</h3>
-          </div>
-          <div key={5}>
-            <h3>5</h3>
-          </div>
-          <div key={6}>
-            <h3>6</h3>
+            <h2>「スライドを閉じる」をクリックして問題に挑戦！</h2>
           </div>
         </Slider>
         <div style={{ textAlign: "center" }}>

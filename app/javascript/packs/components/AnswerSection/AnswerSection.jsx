@@ -5,6 +5,8 @@ import AccountSpace from "./AccountSpace";
 import AccountChoice from "./AccountChoice";
 import ItemTypes from "./ItemTypes";
 import withDragDropContext from './withDragDropContext';
+import AmountInput from "./AmountInput";
+import JudgementButton from "./JudgementButton";
 const update = require("immutability-helper");
 
 class AnswerSection extends Component<{}, AnswerSectionState> {
@@ -13,40 +15,25 @@ class AnswerSection extends Component<{}, AnswerSectionState> {
     this.state = {
       accountSpaces: [
         {
-          accepts: [ItemTypes.CASH, ItemTypes.CAPITALSTOCK, ItemTypes.SALES],
-          lastDroppedItem: null
-        },
-        // {
-        //   answer: 'xxx',
-        //   numberAnswer: 100,
-        // }
-        // {
-        //   answer: 'xxx',
-        //   numberAnswer: 100,
-        // }
-        // {
-        //   answer: 'xxx',
-        //   numberAnswer: 100,
-        // }
-        {
-          accepts: [ItemTypes.CASH, ItemTypes.CAPITALSTOCK, ItemTypes.SALES],
+          accepts: [ItemTypes.ACCOUNTNAME],
           lastDroppedItem: null
         },
         {
-          accepts: [ItemTypes.CASH, ItemTypes.CAPITALSTOCK, ItemTypes.SALES],
+          accepts: [ItemTypes.ACCOUNTNAME],
           lastDroppedItem: null
         },
-        {
-          accepts: [ItemTypes.CASH, ItemTypes.CAPITALSTOCK, ItemTypes.SALES],
-          lastDroppedItem: null
-        }
       ],
       accountChoices: [
-        { name: "現金", type: ItemTypes.CASH },
-        { name: "売上高", type: ItemTypes.SALES },
-        { name: "資本金", type: ItemTypes.CAPITALSTOCK }
+        { name: "現金", type: ItemTypes.ACCOUNTNAME },
+        { name: "売上高", type: ItemTypes.ACCOUNTNAME },
+        { name: "売掛金", type: ItemTypes.ACCOUNTNAME }
       ],
-      droppedAccountChoiceNames: []
+      droppedAccountChoiceNames: [],
+      amount: [
+        { amountInput: null },
+        { amountInput: null },
+        { amountInput: null }
+      ]
     };
   }
 
@@ -56,18 +43,26 @@ class AnswerSection extends Component<{}, AnswerSectionState> {
 
   render() {
     const { accountChoices, accountSpaces } = this.state;
-
     return (
       <div>
+        <h1>問題</h1>
+        <h2>500円の商品を売り上げ、500円を現金で受け取りました。</h2>
+        <h2>この取引の仕訳を起票しましょう。</h2>
         <div style={{ overflow: "hidden", clear: "both" }}>
           {accountSpaces.map(({ accepts, lastDroppedItem }, index) => (
-            <AccountSpace
-              accepts={accepts}
-              lastDroppedItem={lastDroppedItem}
-              // tslint:disable-next-line jsx-no-lambda
-              onDrop={item => this.handleDrop(index, item)}
-              key={index}
-            />
+            <div key={index}>
+              <AccountSpace
+                accepts={accepts}
+                lastDroppedItem={lastDroppedItem}
+                // tslint:disable-next-line jsx-no-lambda
+                onDrop={item => this.handleDrop(index, item)}
+                accountSpaceIndex={index}
+              />
+              <AmountInput
+                amountInput={this.amountInput}
+                amountInputIndex={index}
+              />
+            </div>
           ))}
         </div>
 
@@ -81,10 +76,30 @@ class AnswerSection extends Component<{}, AnswerSectionState> {
             />
           ))}
         </div>
+        <div>
+          <JudgementButton
+            amount={this.state.amount}
+            accountSpaces={this.state.accountSpaces}
+          />
+        </div>
       </div>
     );
   }
 
+  amountInput = amountInput => {
+    // const { amount } = this.state;
+    this.setState(
+      update(this.state, {
+        amount: {
+          [amountInput.index]: {
+            amountInput: {
+              $set: amountInput.amount
+            }
+          }
+        }
+      })
+    );
+  };
   handleDrop(index: number, item: { name: string }) {
     const { name } = item;
     const droppedAccountChoiceNames = name ? { $push: [name] } : {};

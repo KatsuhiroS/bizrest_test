@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { DropTarget, ConnectDropTarget, DropTargetMonitor } from "react-dnd";
 
 const style: React.CSSProperties = {
-  height: "12rem",
+  height: "3.5rem",
   width: "12rem",
   marginRight: "1.5rem",
   marginBottom: "1.5rem",
