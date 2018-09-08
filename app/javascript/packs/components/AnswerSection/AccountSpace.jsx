@@ -29,8 +29,8 @@ class AccountSpace extends Component<AccountSpaceProps> {
       connectDropTarget,
       lastDroppedItem
     } = this.props;
+    console.log(this.props)
     const isActive = isOver && canDrop;
-
     let backgroundColor = "#222";
     if (isActive) {
       backgroundColor = "darkgreen";

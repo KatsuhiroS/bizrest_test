@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { DragDropContext } from "react-dnd";
-import HTML5Backend, { NativeTypes } from "react-dnd-html5-backend";
+// import { DragDropContext } from "react-dnd";
+// import { NativeTypes } from "react-dnd-html5-backend";
 import AccountSpace from "./AccountSpace";
 import AccountChoice from "./AccountChoice";
 import ItemTypes from "./ItemTypes";
+import withDragDropContext from './withDragDropContext';
 const update = require("immutability-helper");
 
 class AnswerSection extends Component<{}, AnswerSectionState> {
@@ -15,6 +16,18 @@ class AnswerSection extends Component<{}, AnswerSectionState> {
           accepts: [ItemTypes.CASH, ItemTypes.CAPITALSTOCK, ItemTypes.SALES],
           lastDroppedItem: null
         },
+        // {
+        //   answer: 'xxx',
+        //   numberAnswer: 100,
+        // }
+        // {
+        //   answer: 'xxx',
+        //   numberAnswer: 100,
+        // }
+        // {
+        //   answer: 'xxx',
+        //   numberAnswer: 100,
+        // }
         {
           accepts: [ItemTypes.CASH, ItemTypes.CAPITALSTOCK, ItemTypes.SALES],
           lastDroppedItem: null
@@ -91,4 +104,4 @@ class AnswerSection extends Component<{}, AnswerSectionState> {
   }
 }
 
-export default DragDropContext(HTML5Backend)(AnswerSection);
+export default withDragDropContext(AnswerSection);
