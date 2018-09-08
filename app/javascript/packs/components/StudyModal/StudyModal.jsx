@@ -63,7 +63,7 @@ class StudyModal extends Component {
           contentLabel="Example Modal"
         >
           <button onClick={this.closeModal}>スライドを閉じる</button>
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>会計入門</h2>
+          <h1 ref={subtitle => (this.subtitle = subtitle)}>会計入門</h1>
           <StudySlide
             currentSlide={this.state.currentSlide}
             handleChangeSlide={this.handleChangeSlide.bind(this)}
