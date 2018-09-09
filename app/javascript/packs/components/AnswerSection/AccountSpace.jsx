@@ -4,10 +4,10 @@ import { DropTarget, ConnectDropTarget, DropTargetMonitor } from "react-dnd";
 const style: React.CSSProperties = {
   height: "3.5rem",
   width: "12rem",
-  marginRight: "1.5rem",
+  // marginRight: "1.5rem",
   marginBottom: "1.5rem",
   color: "white",
-  padding: "1rem",
+  // padding: "1rem",
   textAlign: "center",
   fontSize: "1rem",
   lineHeight: "normal",
