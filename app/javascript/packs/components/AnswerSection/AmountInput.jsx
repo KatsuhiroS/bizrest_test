@@ -12,11 +12,12 @@ export default class AmountInput extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ float: "left" }}>
         <input
           type="number"
           value={this.state.amount}
           onChange={this.handleChange}
+          style={{ height: "50px", fontSize: "20px", marginRight: "10px" }}
         />
       </div>
     );
