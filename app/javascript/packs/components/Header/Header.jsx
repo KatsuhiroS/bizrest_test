@@ -8,10 +8,7 @@ import LogoutButton from './LogoutButton'
 
 const Header = props => (
   <div>
-    <HomeButton />
     <SubjectsButton />
-    <MypageEditButton />
-    <LogoutButton />
   </div>
 
 )
