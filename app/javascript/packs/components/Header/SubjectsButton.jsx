@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const SubjectsButton = props => (
   <div onClick={() => location.reload()}>
     <button>
-      <a href="/subjects">レッスン一覧</a>
+      <a href="/subjects" style={{textDecoration: 'none'}}>レッスン一覧</a>
     </button>
   </div>
 )

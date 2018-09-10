@@ -16,6 +16,19 @@ const customStyles = {
   }
 };
 
+const styleButton: React.CSSProperties = {
+  display: 'inline-block',
+  textDecoration: 'none',
+  padding: '0.5em',
+  marginLeft: '350px',
+  marginTop: '50px',
+  background: '#808080',
+  color: '#eeeeee',
+  borderRadius: '7px',
+  fontSize: '15px',
+  fontWeight: 'bold'
+};
+
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("div");
 
@@ -54,7 +67,7 @@ class StudyModal extends Component {
     // console.log(this.state.currentSlide)
     return (
       <div>
-        <button onClick={this.openModal}>スライドに戻る</button>
+        <button onClick={this.openModal} style={{...styleButton}}>スライドに戻る</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -62,8 +75,8 @@ class StudyModal extends Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <button onClick={this.closeModal}>スライドを閉じる</button>
-          <h1 ref={subtitle => (this.subtitle = subtitle)}>会計入門</h1>
+          <button onClick={this.closeModal}  style={{...styleButton}}>スライドを閉じる</button>
+          <h1 ref={subtitle => (this.subtitle = subtitle)} style={{textAlign: 'center'}}>会計入門</h1>
           <StudySlide
             currentSlide={this.state.currentSlide}
             handleChangeSlide={this.handleChangeSlide.bind(this)}

@@ -1,5 +1,17 @@
 import React, { Component } from "react";
 
+const styleButton: React.CSSProperties = {
+  display: 'inline-block',
+  textDecoration: 'none',
+  padding: '0.5em',
+  background: '#eeeeee',
+  color: '#808080',
+  borderRadius: '7px',
+  fontSize: '15px',
+  fontWeight: 'bold',
+  textDecoration: 'none'
+};
+
 class JudgementButton extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +19,7 @@ class JudgementButton extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.judgement}>正誤判定</button>
+        <button onClick={this.judgement} style={{...styleButton}}>正誤判定</button>
       </div>
     );
   }
@@ -36,15 +48,6 @@ class JudgementButton extends Component {
     } else {
       je2 = false;
     }
-
-    // console.log(je0);
-    // console.log(je1);
-    // console.log(je2);
-    // console.log(drTotal);
-    // console.log(
-    //   Number(this.props.amount[0].amountInput) +
-    //     Number(this.props.amount[1].amountInput)
-    // );
 
     if (!je0) {
       alert("不正解");

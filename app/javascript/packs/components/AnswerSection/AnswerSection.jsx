@@ -44,27 +44,29 @@ class AnswerSection extends Component<{}, AnswerSectionState> {
   render() {
     const { accountChoices, accountSpaces } = this.state;
     return (
-      <div>
+      <div style={{paddingLeft: '350px'}}>
         <h1>問題</h1>
-        <h2>500円の商品を売り上げ、500円を現金で受け取りました。</h2>
+        <h2>商品を売り上げ、500円を現金で受け取りました。</h2>
         <h2>この取引の仕訳を起票しましょう。</h2>
-        <div style={{ overflow: "hidden", clear: "both", float: "left" }}>
-          {accountSpaces.map(({ accepts, lastDroppedItem }, index) => (
-            <div key={index} style={{ float: "left" }}>
-              <AccountSpace
-                accepts={accepts}
-                lastDroppedItem={lastDroppedItem}
-                // tslint:disable-next-line jsx-no-lambda
-                onDrop={item => this.handleDrop(index, item)}
-                accountSpaceIndex={index}
-              />
-              <AmountInput
-                amountInput={this.amountInput}
-                amountInputIndex={index}
-              />
-            </div>
-          ))}
-        </div>
+          <div>※黒い箱には、下記の選択肢からDrag&Dropで勘定科目を選びます。</div>
+          <div style={{ marginBottom: '15px' }}>※白い箱には、金額を半角数字で入力します。</div>
+          <div style={{ overflow: "hidden", clear: "both", float: "left" }}>
+            {accountSpaces.map(({ accepts, lastDroppedItem }, index) => (
+              <div key={index} style={{ float: "left" }}>
+                <AccountSpace
+                  accepts={accepts}
+                  lastDroppedItem={lastDroppedItem}
+                  // tslint:disable-next-line jsx-no-lambda
+                  onDrop={item => this.handleDrop(index, item)}
+                  accountSpaceIndex={index}
+                />
+                <AmountInput
+                  amountInput={this.amountInput}
+                  amountInputIndex={index}
+                />
+              </div>
+            ))}
+          </div>
 
         <div style={{ overflow: "hidden", clear: "both" }}>
           {accountChoices.map(({ name, type }, index) => (
@@ -76,18 +78,19 @@ class AnswerSection extends Component<{}, AnswerSectionState> {
             />
           ))}
         </div>
+
         <div>
           <JudgementButton
             amount={this.state.amount}
             accountSpaces={this.state.accountSpaces}
           />
         </div>
+        <div style={{ marginTop: '15px' }}>答えを埋めたら正誤判定ボタンを押します。</div>
       </div>
     );
   }
 
   amountInput = amountInput => {
-    // const { amount } = this.state;
     this.setState(
       update(this.state, {
         amount: {

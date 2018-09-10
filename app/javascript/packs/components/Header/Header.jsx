@@ -8,9 +8,8 @@ import LogoutButton from './LogoutButton'
 
 const Header = props => (
   <div>
-    <SubjectsButton />
+    <HomeButton />
   </div>
-
 )
 
 Header.defaultProps = {
