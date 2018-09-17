@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const LoginButton = props => (
   <div>
     <button>
-      <a href="/mypage">ログイン</a>
+      <a href="/signin">ログイン</a>
     </button>
   </div>
 

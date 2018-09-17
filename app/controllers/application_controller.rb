@@ -15,8 +15,11 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.user
   end
 
-  # ログイン必須controllerのbefore_actionで呼ぶ
-  def require_login
+  def authenticate_user!
     return redirect_to sign_in_path unless current_user
+  end
+
+  def forbid_login_user!
+    return redirect_to mypage_path if current_user
   end
 end

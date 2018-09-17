@@ -1,4 +1,6 @@
 class User::RegistrationsController < ApplicationController
+  before_action :forbid_login_user!
+
   def new
     @user = User.new
   end
@@ -7,7 +9,7 @@ class User::RegistrationsController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to "/"
+      redirect_to "/mypage"
     else
       render action: :new
     end

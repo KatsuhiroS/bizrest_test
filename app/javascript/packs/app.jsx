@@ -11,7 +11,6 @@ import MypageEdit from './components/MypageEdit/MypageEdit'
 import Accounting from './components/Lessons/Accounting'
 import AccountingStudy from './components/Study/AccountingStudy'
 
-console.log(location.pathname)
 document.addEventListener('turbolinks:load', () => {
   const rootComponent = (() => {
     switch (location.pathname) {
@@ -30,7 +29,9 @@ document.addEventListener('turbolinks:load', () => {
     }
   })()
 
-  render(
+  if (!rootComponent) return null
+
+  render (
     rootComponent,
     document.getElementById('root'),
   )
