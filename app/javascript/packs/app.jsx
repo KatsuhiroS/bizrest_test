@@ -16,8 +16,6 @@ document.addEventListener('turbolinks:load', () => {
     switch (location.pathname) {
       case '/':
         return <Top />
-      case '/mypage':
-        return <Mypage />
       case '/subjects':
         return <Subjects />
       case '/mypage/edit':
