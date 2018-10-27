@@ -1,0 +1,20 @@
+= form_for @user_session do |f|
+  - if @user_session.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user_session.errors.count, "error")
+        prohibited:
+      %ul
+        - @user_session.errors.full_messages.each do |msg|
+          %li= msg
+  = f.label :email
+  %br/
+  = f.text_field :email
+  %br/
+  %br/
+  = f.label :password
+  %br/
+  = f.password_field :password
+  %br/
+  %br/
+  = f.submit "Login"
