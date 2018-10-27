@@ -1,2 +1,5 @@
 <div id="root"></div>
 <%= javascript_pack_tag 'app' %>
+
+<%= image_tag(src="#{current_user.image}", :style => "display: block; margin: 0 auto;") %>
+<p style="text-align: center" ><%= current_user.name %></p>

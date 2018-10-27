@@ -7,7 +7,7 @@ class User::RegistrationsController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    @user.image = "default_user.jpg"
     if @user.save
       redirect_to "/mypage"
     else
@@ -18,6 +18,6 @@ class User::RegistrationsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
