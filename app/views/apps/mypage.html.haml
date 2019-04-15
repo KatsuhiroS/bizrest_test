@@ -1,2 +1,5 @@
-= image_tag current_user.image, style: "display: block; margin: 0 auto;"
+- if current_user.image
+  = image_tag current_user.image, style: "display: block; margin: 0 auto;"
+- else
+  ないよ
 %p{:style => "text-align: center"}= current_user.name
