@@ -9,12 +9,12 @@ const HomeButton = props => (
   </div>
 )
 
-HomeButton.defaultProps = {
-  name: ''
-}
-
-HomeButton.propTypes = {
-  name: PropTypes.string
-}
+// HomeButton.defaultProps = {
+//   name: ''
+// }
+//
+// HomeButton.propTypes = {
+//   name: PropTypes.string
+// }
 
 export default HomeButton;
