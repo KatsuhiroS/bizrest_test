@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 const SubjectsButton = props => (
-  <div onClick={() => location.reload()}>
+  <div>
     <button>
       <a href="/subjects">レッスン一覧</a>
     </button>

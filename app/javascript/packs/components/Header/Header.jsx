@@ -10,7 +10,6 @@ const Header = props => (
   <div>
     <SubjectsButton />
   </div>
-
 )
 
 Header.defaultProps = {
