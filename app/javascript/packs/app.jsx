@@ -5,6 +5,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Top from './components/Top/Top'
+// import Mypage from './components/Mypage/Mypage'
 import Subjects from './components/Subjects/Subjects'
 import MypageEdit from './components/MypageEdit/MypageEdit'
 import Accounting from './components/Lessons/Accounting'
