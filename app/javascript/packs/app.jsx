@@ -7,6 +7,8 @@ import { render } from 'react-dom'
 import Top from './components/Top/Top'
 // import Mypage from './components/Mypage/Mypage'
 import Subjects from './components/Subjects/Subjects'
+import { DragDropContextProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
 import MypageEdit from './components/MypageEdit/MypageEdit'
 import Accounting from './components/Lessons/Accounting'
 import AccountingStudy from './components/Study/AccountingStudy'
@@ -16,13 +18,12 @@ document.addEventListener('turbolinks:load', () => {
     switch (location.pathname) {
       case '/':
         return <Top />
-      case '/subjects':
-        return <Subjects />
       case '/mypage/edit':
         return <MypageEdit />
       case '/subjects/accounting':
         return <Accounting />
       case '/accounting/study':
+        debugger
         return <AccountingStudy />
     }
   })()
@@ -30,7 +31,9 @@ document.addEventListener('turbolinks:load', () => {
   if (!rootComponent) return null
 
   render (
-    rootComponent,
+    <DragDropContextProvider backend={HTML5Backend}>
+      <AccountingStudy />
+    </DragDropContextProvider>,
     document.getElementById('root'),
   )
 })

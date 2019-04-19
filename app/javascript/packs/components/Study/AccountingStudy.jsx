@@ -5,13 +5,14 @@ import Header from '../Header/Header'
 import StudyModal from '../StudyModal/StudyModal'
 import AnswerSection from '../AnswerSection/AnswerSection'
 
-const AccountingStudy = props => (
-  <div>
-    <Header />
-    <AnswerSection />
-    <StudyModal />
-  </div>
-)
+const AccountingStudy = props => {
+  return(
+    <div>
+      <AnswerSection />
+      <StudyModal />
+    </div>
+  )
+}
 
 AccountingStudy.defaultProps = {
   name: ''
