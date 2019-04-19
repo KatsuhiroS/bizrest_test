@@ -7,4 +7,38 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import React from 'react'
+import { render } from 'react-dom'
+import Top from './components/Top/Top'
+import Subjects from './components/Subjects/Subjects'
+import { DragDropContextProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+import MypageEdit from './components/MypageEdit/MypageEdit'
+import Accounting from './components/Lessons/Accounting'
+import AccountingStudy from './components/Study/AccountingStudy'
+
+document.addEventListener('turbolinks:load', () => {
+  const rootComponent = (() => {
+    switch (location.pathname) {
+      case '/':
+        return <Top />
+      case '/mypage/edit':
+        return <MypageEdit />
+      case '/subjects/accounting':
+        return <Accounting />
+      case '/accounting/study':
+        return (
+          <DragDropContextProvider backend={HTML5Backend}>
+            <AccountingStudy />
+          </DragDropContextProvider>
+        )
+    }
+  })()
+
+  if (!rootComponent) return null
+
+  render (
+    rootComponent,
+    document.getElementById('root'),
+  )
+})

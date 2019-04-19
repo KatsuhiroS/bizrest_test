@@ -17,7 +17,6 @@ const customStyles = {
 };
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement("div");
 
 class StudyModal extends Component {
   constructor(props) {
@@ -31,6 +30,10 @@ class StudyModal extends Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentDidMount() {
+    Modal.setAppElement('body');
   }
 
   openModal() {
