@@ -24,16 +24,18 @@ document.addEventListener('turbolinks:load', () => {
         return <Accounting />
       case '/accounting/study':
         debugger
-        return <AccountingStudy />
+        return (
+          <DragDropContextProvider backend={HTML5Backend}>
+            <AccountingStudy />
+          </DragDropContextProvider>
+        )
     }
   })()
 
   if (!rootComponent) return null
 
   render (
-    <DragDropContextProvider backend={HTML5Backend}>
-      <AccountingStudy />
-    </DragDropContextProvider>,
+    rootComponent,
     document.getElementById('root'),
   )
 })

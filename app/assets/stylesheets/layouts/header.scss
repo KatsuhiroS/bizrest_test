@@ -18,6 +18,17 @@ header {
 
   .header-left {
     font-size: 22px;
+
+    ul {
+      display: flex;
+      margin: 0;
+      list-style: none;
+
+      li {
+        list-style: none;
+        margin-right: 20px;
+      }
+    }
   }
 
   .header-right {
