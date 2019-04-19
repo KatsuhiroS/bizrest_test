@@ -5,7 +5,6 @@ import AccountingStartButton from './AccountingStartButton'
 
 const Accounting = props => (
   <div>
-    <Header />
     <div>会計入門</div>
     <AccountingStartButton />
   </div>
