@@ -1,7 +1,9 @@
-#root
-  %div
-    %a{:href => "/subjects/accounting"} 会計入門
-  %div
-    %a{:href => "#"} 簿記
-  %div
-    %a{:href => "#"} 会計クイズ
+%div.subjects
+  - @subjects.each do |subject|
+    %div.subject-title
+      = subject.title
+    %div.subject-explanation
+      = subject.explanation
+    - if subject.image
+      = subject.image
+    = link_to '会計入門のレッスン一覧へ', subjects_accounting_path

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'apps#top'
-  
+
   get '/mypage', to: 'apps#mypage'
   get '/mypage/edit', to: 'apps#mypage_edit'
 
@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get '/accounting/study', to: 'apps#accounting_study'
   
   resources :subjects, only: [:index, :show]
-
 
   get "signin" => "user/sessions#new"
   delete "signout" => "user/sessions#destroy"
