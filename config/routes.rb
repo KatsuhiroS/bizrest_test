@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'apps#top'
 
-  get '/mypage', to: 'apps#mypage'
-  get '/mypage/edit', to: 'apps#mypage_edit'
+  get '/mypage', to: 'mypage#index'
+  get '/mypage/edit', to: 'mypage#edit'
 
   get '/subjects/accounting', to: 'apps#accounting'
   get '/accounting/study', to: 'apps#accounting_study'
