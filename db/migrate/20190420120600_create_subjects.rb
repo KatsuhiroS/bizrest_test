@@ -5,7 +5,7 @@ class CreateSubjects < ActiveRecord::Migration[5.2]
       t.text :explanation
       t.string :image
       t.integer :order
-
+      t.string :slug
       t.timestamps
     end
   end
