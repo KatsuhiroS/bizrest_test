@@ -19,10 +19,10 @@ document.addEventListener('turbolinks:load', () => {
         return <MypageEdit />
       case '/subjects':
         return <Subject />
-      case '/subjects/accounting':
+      case '/subjects/accounting/lessons':
         return <Subjects />
-      case '/subjects/accounting':
-        return <Accounting />
+          //case '/subjects/accounting':
+          //return <Accounting />
       case '/accounting/study':
         return (
           <DragDropContextProvider backend={HTML5Backend}>

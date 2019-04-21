@@ -1,12 +1,2 @@
 #root
 
-/
-  %div.subjects
-  - @subjects.each do |subject|
-    %div.subject-title
-      = subject.title
-    %div.subject-explanation
-      = subject.explanation
-    - if subject.image
-      = subject.image
-    = link_to '会計入門のレッスン一覧へ', subjects_accounting_path

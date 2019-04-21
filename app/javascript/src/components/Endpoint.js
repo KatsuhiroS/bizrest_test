@@ -5,9 +5,13 @@ export function subjectShow(slug) {
 }
 
 export function apiSubjectIndex() {
-  return `${domain}/api/subject`
+  return `${domain}/api/subjects`
+}
+
+export function subjectLessonIndex(subjectSlug) {
+  return `${domain}/subjects/${subjectSlug}/lessons`
 }
 
 export function apiLessonIndex(subjectSlug) {
-  return `${domain}/api/subject/${subjectSlug}/lesson`
+  return `${domain}/api/subjects/${subjectSlug}/lesson`
 }
