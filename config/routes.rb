@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api, { format: :json } do
-    resources :subjects
+    resources :subjects, only: [:index], param: :slug do
+      resources :lessons, only: [:index], controller: 'subjects/lessons'
+    end
   end
 end

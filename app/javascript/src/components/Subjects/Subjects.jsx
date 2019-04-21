@@ -12,6 +12,7 @@ import Subject from './Subject'
 class Subjects extends React.Component {
   constructor(props) {
     super(props)
+    console.log('hoge')
 
     this.state = {
       lessons: []
@@ -21,7 +22,7 @@ class Subjects extends React.Component {
   }
 
   fetchLessons() {
-    const slug = location.pathname.replace('/subjects/', '')
+    const slug = location.pathname.replace('/subjects/', '').replace('/lessons', '')
     const endpoint = apiLessonIndex(slug)
 
     axios.get(endpoint).then((res) => {
@@ -34,8 +35,8 @@ class Subjects extends React.Component {
   renderLessons(lessons) {
     return lessons.map((lesson) => {
       return(
-        <div>
-          <a href="#">
+        <div key={lesson.id}>
+          <a href="/accounting/study">
             { lesson.name }
           </a>
         </div>

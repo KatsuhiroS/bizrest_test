@@ -32,7 +32,6 @@ document.addEventListener('turbolinks:load', () => {
     }
   })()
 
-  console.log('foo')
   if (!rootComponent) return null
 
   render (
