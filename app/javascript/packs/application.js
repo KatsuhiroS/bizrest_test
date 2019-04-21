@@ -20,6 +20,8 @@ document.addEventListener('turbolinks:load', () => {
       case '/subjects':
         return <Subject />
       case '/subjects/accounting':
+        return <Subjects />
+      case '/subjects/accounting':
         return <Accounting />
       case '/accounting/study':
         return (
@@ -30,6 +32,7 @@ document.addEventListener('turbolinks:load', () => {
     }
   })()
 
+  console.log('foo')
   if (!rootComponent) return null
 
   render (

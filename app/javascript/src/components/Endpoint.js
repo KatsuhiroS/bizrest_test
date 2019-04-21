@@ -8,3 +8,6 @@ export function apiSubjectIndex() {
   return `${domain}/api/subject`
 }
 
+export function apiLessonIndex(subjectSlug) {
+  return `${domain}/api/subject/${subjectSlug}/lesson`
+}
