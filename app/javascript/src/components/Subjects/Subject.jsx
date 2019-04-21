@@ -1,20 +1,45 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import axios from 'axios'
+import { subjectShow } from '../Endpoint'
 
-const Subject = props => (
-  <div>
-    <div><a href="/subjects/accounting">会計入門</a></div>
-    <div><a href="#">簿記</a></div>
-    <div><a href="#">会計クイズ</a></div>
-  </div>
-)
+class Subject extends React.Component {
+  constructor(props) {
+    super(props)
 
-Subject.defaultProps = {
-  name: ''
-}
+    this.state = {
+      subjects: []
+    }
 
-Subject.propTypes = {
-  name: PropTypes.string
+    this.fetchSubjects()
+  }
+
+  fetchSubjects() {
+    axios.get(`http://localhost:3000/api/subject`).then((res) => {
+      this.setState({ subjects: res.data })
+    })
+  }
+
+  render() {
+    return(
+      <div>
+        { this.renderSubject(this.state.subjects) }
+      </div>
+    )
+  }
+
+  renderSubject(subjects) {
+    return subjects.map((subject) => {
+      const linkTo = subjectShow(subject.slug)
+
+      return(
+        <div key={subject.id}>
+          <a href={ linkTo }>{ subject.title }</a>
+        </div>
+      )
+    })
+  }
 }
 
 export default Subject;
+
