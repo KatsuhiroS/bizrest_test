@@ -1,8 +1,10 @@
+const domain = 'http://localhost:3000'
+
 export function subjectShow(slug) {
-  return `/subjects/${slug}`
+  return `${domain}/subjects/${slug}`
 }
 
 export function apiSubjectIndex() {
-  return '/api/subject'
+  return `${domain}/api/subject`
 }
 

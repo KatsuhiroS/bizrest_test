@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import { subjectShow } from '../Endpoint'
+import {
+  apiSubjectIndex,
+  subjectShow
+} from '../Endpoint'
 
 class Subject extends React.Component {
   constructor(props) {
@@ -15,7 +18,9 @@ class Subject extends React.Component {
   }
 
   fetchSubjects() {
-    axios.get(`http://localhost:3000/api/subject`).then((res) => {
+    const endpoint = apiSubjectIndex()
+
+    axios.get(endpoint).then((res) => {
       this.setState({ subjects: res.data })
     })
   }
