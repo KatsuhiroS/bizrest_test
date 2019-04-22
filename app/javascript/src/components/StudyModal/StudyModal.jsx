@@ -22,6 +22,8 @@ class StudyModal extends Component {
   constructor(props) {
     super(props);
 
+    Modal.setAppElement('#root')
+
     this.state = {
       modalIsOpen: true,
       currentSlide: 0,

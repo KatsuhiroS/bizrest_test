@@ -12,7 +12,6 @@ import Subject from './Subject'
 class Subjects extends React.Component {
   constructor(props) {
     super(props)
-    console.log('hoge')
 
     this.state = {
       lessons: []
