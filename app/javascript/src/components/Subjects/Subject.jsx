@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import {
   apiSubjectIndex,
-  subjectShow
+  subjectLessonIndex
 } from '../Endpoint'
 
 class Subject extends React.Component {
@@ -35,7 +35,7 @@ class Subject extends React.Component {
 
   renderSubject(subjects) {
     return subjects.map((subject) => {
-      const linkTo = subjectShow(subject.slug)
+      const linkTo = subjectLessonIndex(subject.slug)
 
       return(
         <div key={subject.id}>

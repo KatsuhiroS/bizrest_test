@@ -1,8 +1,6 @@
-class Api::SubjectController < Api::ApplicationController
+class Api::SubjectsController < Api::ApplicationController
   def index
     @subjects = Subject.all
-
-    #@subject = Subject.first
 
     render json: @subjects.map{ |subject|
       {

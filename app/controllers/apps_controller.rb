@@ -6,5 +6,7 @@ class AppsController < ApplicationController
   end
 
   def accounting_study
+    # TODO: エラーハンドリングを追加する
+    p "エラーハンドリングする" unless Subject.find_by(slug: params[:slug])
   end
 end
