@@ -12,7 +12,8 @@ const customStyles = {
     marginRight: "-50%",
     width: "95%",
     height: "90%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    background: "radial-gradient(#ffe9cc, #b3a592)"
   }
 };
 
