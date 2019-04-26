@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  string: MyString
+  order: MyString
+  integer: MyString
+  lesson_id: MyString
+  integer: MyString
+
+two:
+  title: MyString
+  string: MyString
+  order: MyString
+  integer: MyString
+  lesson_id: MyString
+  integer: MyString
