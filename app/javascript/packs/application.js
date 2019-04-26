@@ -5,9 +5,8 @@ import HTML5Backend from 'react-dnd-html5-backend'
 
 import Top from '../src/components/Top/Top'
 import Subjects from '../src/components/Subjects'
-// import Subjects from '../src/components/Subjects/Subjects'
+import Lessons from '../src/components/Lessons'
 import MypageEdit from '../src/components/MypageEdit/MypageEdit'
-import Accounting from '../src/components/Lessons/Accounting'
 import AccountingStudy from '../src/components/Study/AccountingStudy'
 
 document.addEventListener('turbolinks:load', () => {
@@ -20,8 +19,8 @@ document.addEventListener('turbolinks:load', () => {
       case '/subjects':
         return <Subjects />
       case '/subjects/accounting':
-      //   return <Subjects />
-      // case '/accounting/study/1':
+        return <Lessons />
+      case '/accounting/study/1':
         return (
           <DragDropContextProvider backend={HTML5Backend}>
             <AccountingStudy />

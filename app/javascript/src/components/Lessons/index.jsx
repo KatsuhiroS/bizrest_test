@@ -1,14 +1,10 @@
-import React from "react"
-import PropTypes from 'prop-types'
+import React from 'react'
 import axios from 'axios'
 import {
-  apiLessonIndex
+  apiLessonsIndex
 } from '../Endpoint'
 
-import Subject from './Subject'
-
-
-class Subjects extends React.Component {
+class Lessons extends React.Component {
   constructor(props) {
     super(props)
 
@@ -20,8 +16,8 @@ class Subjects extends React.Component {
   }
 
   fetchLessons() {
-    const slug = location.pathname.replace('/subjects/', '').replace('/lessons', '')
-    const endpoint = apiLessonIndex(slug)
+    const slug = location.pathname.replace('/subjects/', '')
+    const endpoint = apiLessonsIndex(slug)
 
     axios.get(endpoint).then((res) => {
       this.setState(
@@ -54,4 +50,4 @@ class Subjects extends React.Component {
   }
 }
 
-export default Subjects
+export default Lessons
