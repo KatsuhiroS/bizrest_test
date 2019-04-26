@@ -9,5 +9,6 @@ Subject.create(
 # 上のSubjectのデータがid:1にならないとデータ作られないので注意
 Lesson.create(
   name: '会計入門',
-  subject_id: 1
+  subject_id: 1,
+  order: 1
 )

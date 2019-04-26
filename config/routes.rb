@@ -26,5 +26,5 @@ Rails.application.routes.draw do
   end
 
   # NOTE: 最後に置かないとバグになる可能性があります
-  get '/:slug/study', to: 'apps#accounting_study'
+  get '/:slug/study/:order', to: 'apps#accounting_study'
 end

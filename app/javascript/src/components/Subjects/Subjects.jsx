@@ -35,7 +35,7 @@ class Subjects extends React.Component {
     return lessons.map((lesson) => {
       return(
         <div key={lesson.id}>
-          <a href="/accounting/study">
+          <a href="/accounting/study/1">
             { lesson.name }
           </a>
         </div>
