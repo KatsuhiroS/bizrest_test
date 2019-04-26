@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   get '/mypage', to: 'mypage#index'
   get '/mypage/edit', to: 'mypage#edit'
 
-  #get '/subjects/accounting', to: 'apps#accounting'
-  #get '/accounting/study', to: 'apps#accounting_study'
-
   resources :subjects, only: [:index]
   get 'subjects/:slug', to: 'subjects#show'
 

@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import Header from '../Header/Header'
 import AccountingStartButton from './AccountingStartButton'
 
 const Accounting = props => (

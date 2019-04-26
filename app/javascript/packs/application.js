@@ -21,8 +21,6 @@ document.addEventListener('turbolinks:load', () => {
         return <Subject />
       case '/subjects/accounting':
         return <Subjects />
-          //case '/subjects/accounting':
-          //return <Accounting />
       case '/accounting/study/1':
         return (
           <DragDropContextProvider backend={HTML5Backend}>
