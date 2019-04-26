@@ -7,7 +7,7 @@ import Top from '../src/components/Top/Top'
 import Subjects from '../src/components/Subjects'
 import Lessons from '../src/components/Lessons'
 import MypageEdit from '../src/components/MypageEdit/MypageEdit'
-import AccountingStudy from '../src/components/Study/AccountingStudy'
+import AccountingStudy from '../src/components/Exercises/AccountingStudy'
 
 document.addEventListener('turbolinks:load', () => {
   const rootComponent = (() => {
