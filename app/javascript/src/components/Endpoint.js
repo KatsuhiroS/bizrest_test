@@ -9,7 +9,7 @@ export function apiSubjectIndex() {
 }
 
 export function subjectLessonIndex(subjectSlug) {
-  return `${domain}/subjects/${subjectSlug}/lessons`
+  return `${domain}/subjects/${subjectSlug}`
 }
 
 export function apiLessonIndex(subjectSlug) {

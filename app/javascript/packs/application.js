@@ -19,7 +19,7 @@ document.addEventListener('turbolinks:load', () => {
         return <MypageEdit />
       case '/subjects':
         return <Subject />
-      case '/subjects/accounting/lessons':
+      case '/subjects/accounting':
         return <Subjects />
           //case '/subjects/accounting':
           //return <Accounting />

@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   #get '/subjects/accounting', to: 'apps#accounting'
   #get '/accounting/study', to: 'apps#accounting_study'
 
-  resources :subjects, only: [:index], param: :slug do
-    resources :lessons, only: [:index], controller: 'subjects/lessons'
-  end
+  resources :subjects, only: [:index]
+  get 'subjects/:slug', to: 'subjects#show'
 
   get "signin" => "user/sessions#new"
   delete "signout" => "user/sessions#destroy"
