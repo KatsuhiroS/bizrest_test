@@ -1,12 +1,11 @@
-import React from "react";
-import PropTypes from 'prop-types'
+import React from 'react'
 import axios from 'axios'
 import {
-  apiSubjectIndex,
-  subjectShow
+  apiSubjectsIndex,
+  subjectsShow
 } from '../Endpoint'
 
-class Subject extends React.Component {
+class Subjects extends React.Component {
   constructor(props) {
     super(props)
 
@@ -18,7 +17,7 @@ class Subject extends React.Component {
   }
 
   fetchSubjects() {
-    const endpoint = apiSubjectIndex()
+    const endpoint = apiSubjectsIndex()
 
     axios.get(endpoint).then((res) => {
       this.setState({ subjects: res.data })
@@ -35,7 +34,7 @@ class Subject extends React.Component {
 
   renderSubject(subjects) {
     return subjects.map((subject) => {
-      const linkTo = subjectShow(subject.slug)
+      const linkTo = subjectsShow(subject.slug)
 
       return(
         <div key={subject.id}>
@@ -46,5 +45,5 @@ class Subject extends React.Component {
   }
 }
 
-export default Subject;
+export default Subjects
 

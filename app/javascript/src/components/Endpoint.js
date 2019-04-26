@@ -1,11 +1,11 @@
 const domain = 'http://localhost:3000'
 
-export function subjectShow(slug) {
-  return `${domain}/subjects/${slug}`
+export function apiSubjectsIndex() {
+  return `${domain}/api/subjects`
 }
 
-export function apiSubjectIndex() {
-  return `${domain}/api/subjects`
+export function subjectsShow(slug) {
+  return `${domain}/subjects/${slug}`
 }
 
 export function subjectLessonIndex(subjectSlug) {
