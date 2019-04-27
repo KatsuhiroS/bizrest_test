@@ -2,6 +2,7 @@
   "name": "bizrest_test",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "@rails/webpacker": "3.5",
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
