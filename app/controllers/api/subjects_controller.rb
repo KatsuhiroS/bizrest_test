@@ -6,6 +6,7 @@ class Api::SubjectsController < Api::ApplicationController
       {
         id: subject.id,
         title: subject.title,
+        explanation: subject.explanation,
         slug: subject.slug
       }
     }
