@@ -6,9 +6,8 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag javascript_entry_path
 
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:charset => "UTF-8", :href => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css", :rel => "stylesheet", :type => "text/css"}/
   %body
