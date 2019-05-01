@@ -3,7 +3,7 @@ module ApplicationHelper
 
   def javascript_entry_path
     packs_root = "#{Rails.root.to_s}/app/javascript/packs/"
-    packs_path = "#{controller_name}/#{action_name}"
+    packs_path = "#{controller_path}/#{action_name}"
 
     if ! File.exist?("#{packs_root}#{packs_path}#{EXTENSION}")
       return "fallback"
