@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import SignupButton from './SignupButton'
 import LoginButton from './LoginButton'
 
-const Top = props => (
+const TopPage = props => (
   <div>
     <div>{props.name}</div>
     <SignupButton />
@@ -13,12 +13,12 @@ const Top = props => (
 
 )
 
-Top.defaultProps = {
+TopPage.defaultProps = {
   name: 'Bizrest'
 }
 
-Top.propTypes = {
+TopPage.propTypes = {
   name: PropTypes.string
 }
 
-export default Top;
+export default TopPage;
