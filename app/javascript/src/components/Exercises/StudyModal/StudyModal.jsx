@@ -31,7 +31,7 @@ class StudyModal extends Component {
     };
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
+    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -43,10 +43,10 @@ class StudyModal extends Component {
     this.setState({ modalIsOpen: true });
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#000";
-  }
+  // afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   this.subtitle.style.color = "#000";
+  // }
 
   closeModal() {
     this.setState({ modalIsOpen: false });
@@ -69,7 +69,6 @@ class StudyModal extends Component {
           contentLabel="Example Modal"
         >
           <button onClick={this.closeModal}>スライドを閉じる</button>
-          <h1 ref={subtitle => (this.subtitle = subtitle)}>会計入門</h1>
           <StudySlide
             currentSlide={this.state.currentSlide}
             handleChangeSlide={this.handleChangeSlide.bind(this)}
