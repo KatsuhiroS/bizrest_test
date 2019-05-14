@@ -151,6 +151,36 @@ export default class StudySlide extends Component {
             <h2 style={fontTitleDefault}>プラスは利益・マイナスは損失</h2>
             <div style={fontTextDefault}>収益から費用を引いた金額が<span style={fontBlue}>プラス</span>のときは<span style={fontGreen}>利益</span>、<span style={fontBrown}>マイナス</span>のときは<span style={fontGreen}>損失</span>といいます。</div>
           </div>
+          <div key={28}>
+            <h2 style={fontTitleDefault}>損益計算書は借方と貸方に分かれる</h2>
+            <div style={fontTextDefault}>損益計算書は左右の２つ分かれ、<span style={fontBrown}>左側</span>を「<span style={fontBrown}>借方</span>」、<span style={fontBlue}>右側</span>を「<span style={fontBlue}>貸方</span>」といいます。</div>
+            <div style={fontTextDefault}>左側が「借方」、右側が「貸方」というのはB/Sと同じです。</div>
+          </div>
+          <div key={29}>
+            <h2 style={fontTitleDefault}>売上総利益とは</h2>
+            <div style={fontTextDefault}><span style={fontGreen}>売上総利益</span>は<span style={fontBlue}>売上高</span>から<span style={fontRed}>売上原価</span>を引いた金額をいいます。</div>
+            <div style={fontTextDefault}>売上総利益は「粗利（あらり）」ともよばれ、<span style={fontGreen}>商品の売上による利益</span>を表します。</div>
+          </div>
+          <div key={30}>
+            <h2 style={fontTitleDefault}>販管費・営業利益とは</h2>
+            <div style={fontTextDefault}><span style={fontRed}>販売費及び一般管理費</span>は「<span style={fontRed}>販管費</span>」と呼ばれことが多く、商品を販売するために間接的に発生する費用のことをいいます。</div>
+            <div style={fontTextDefault}><span style={fontGreen}>営業利益</span>は、売上総利益から<span style={fontRed}>販管費</span>を引いた金額をいい、<span style={fontGreen}>会社の本業による利益</span>を表します。</div>
+          </div>
+          <div key={31}>
+            <h2 style={fontTitleDefault}>営業外収益/費用・経常利益とは</h2>
+            <div style={fontTextDefault}><span style={fontBlue}>営業外収益</span>（<span style={fontRed}>費用</span>）とは、会社の本業以外の活動による収益（費用）のことをいいます。</div>
+            <div style={fontTextDefault}><span style={fontGreen}>経常利益</span>は、営業利益に<span style={fontBlue}>営業外収益</span>を足して<span style={fontRed}>営業外費用</span>を引いた金額をいい、<span style={fontGreen}>毎期継続的に発生する利益</span>を表します。</div>
+          </div>
+          <div key={32}>
+            <h2 style={fontTitleDefault}>特別利益/損失・税引前当期純利益とは</h2>
+            <div style={fontTextDefault}><span style={fontBlue}>特別利益</span>（<span style={fontRed}>損失</span>）とは、臨時的（毎期ではない頻度）に発生した利益や損失のことをいいます。</div>
+            <div style={fontTextDefault}><span style={fontGreen}>税引前当期純利益</span>は、経常利益に<span style={fontBlue}>特別利益</span>を足して<span style={fontRed}>特別損失</span>を引いた金額をいい、<span style={fontGreen}>税金を除く全ての利益</span>を表します。</div>
+          </div>
+          <div key={33}>
+            <h2 style={fontTitleDefault}>法人税等・当期純利益とは</h2>
+            <div style={fontTextDefault}><span style={fontRed}>法人税等</span>とは、会社の利益に課される税金のことをいいます。</div>
+            <div style={fontTextDefault}><span style={fontGreen}>当期純利益</span>は、経常利益に<span style={fontBlue}>特別利益</span>を足して<span style={fontRed}>特別損失</span>を引いた金額をいい、<span style={fontGreen}>全てを含んだ最終的な利益</span>を表します。</div>
+          </div>
         </Slider>
         <div style={{ textAlign: "center" }}>
           <button className="button" onClick={this.previous}>
