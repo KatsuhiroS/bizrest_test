@@ -30,48 +30,43 @@ class Lessons extends React.Component {
     })
   }
 
-  renderLessons(lessons) {
-    return lessons.map((lesson) => {
-      return(
-        <div key={lesson.id}>
-          <Card style={styles.card}>
-            <CardHeader
-              title={lesson.name}
-            />
-            <CardContent>
-              <p>このレッスンをやれば会計の基礎は完璧です。</p>
-            </CardContent>
-            <div style={{padding: '0 16px'}}>
-              <Button
-                className='lesson-start-btn'
-                href='/accounting/study/1'
-                variant='contained'
-                color='primary'
-                size='small'
-              >
-                レッスンを始める
-              </Button>
-              <Button
-                href='#'
-                variant='contained'
-                size='small'
-              >
-                このレッスンの目次を見る
-              </Button>
-            </div>
-          </Card>
-        </div>
-      )
-    })
-  }
-
   render() {
+    const {lessons} = this.state
     return(
       <div>
         <div>レッスン一覧</div>
-        {
-          this.renderLessons(this.state.lessons)
-        }
+        {lessons.map((lesson) => {
+          return (
+            <div key={lesson.id}>
+              <Card style={styles.card}>
+                <CardHeader
+                  title={lesson.name}
+                />
+                <CardContent>
+                  <p>このレッスンをやれば会計の基礎は完璧です。</p>
+                </CardContent>
+                <div style={{padding: '0 16px'}}>
+                  <Button
+                    className='lesson-start-btn'
+                    href='/accounting/study/1'
+                    variant='contained'
+                    color='primary'
+                    size='small'
+                  >
+                    レッスンを始める
+                  </Button>
+                  <Button
+                    href='#'
+                    variant='contained'
+                    size='small'
+                  >
+                    このレッスンの目次を見る
+                  </Button>
+                </div>
+              </Card>
+            </div>
+          )
+        })}
       </div>
     )
   }
