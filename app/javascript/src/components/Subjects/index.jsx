@@ -29,38 +29,33 @@ class Subjects extends React.Component {
   }
 
   render() {
+    const {subjects} = this.state
     return(
       <div>
-        { this.renderSubject(this.state.subjects) }
-      </div>
-    )
-  }
-
-  renderSubject(subjects) {
-    return subjects.map((subject) => {
-      const linkTo = subjectsShow(subject.slug)
-
-      return(
-        <div key={subject.id} style={styles.container}>
-          <Card style={styles.card}>
-            <CardHeader
-              title={subject.title}
-            />
-            <CardContent>
-              <p>{subject.explanation}</p>
-            </CardContent>
-            <Button
-              href={linkTo}
-              variant='contained'
-              color='primary'
-              size='small'
-            >
-              レッスン一覧を見る
-            </Button>
-          </Card>
-        </div>
-      )
-    })
+        {subjects.map((subject) => {
+          return (
+            <div key={subject.id} style={styles.container}>
+              <Card style={styles.card}>
+                <CardHeader
+                  title={subject.title}
+                />
+                <CardContent>
+                  <p>{subject.explanation}</p>
+                </CardContent>
+                <Button
+                  href={subjectsShow(subject.slug)}
+                  variant='contained'
+                  color='primary'
+                  size='small'
+                >
+                  レッスン一覧を見る
+                </Button>
+              </Card>
+            </div>
+          )
+        })}
+     </div>
+   )
   }
 }
 
