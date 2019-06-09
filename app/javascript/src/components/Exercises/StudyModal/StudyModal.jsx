@@ -57,7 +57,7 @@ class StudyModal extends Component {
   }
 
   render(props) {
-    // console.log(this.state.currentSlide)
+    const {slides} = this.props
     return (
       <div>
         <button onClick={this.openModal}>スライドに戻る</button>
@@ -71,6 +71,7 @@ class StudyModal extends Component {
           <button onClick={this.closeModal}>スライドを閉じる</button>
           <StudySlide
             currentSlide={this.state.currentSlide}
+            slides={slides}
             handleChangeSlide={this.handleChangeSlide.bind(this)}
           />
         </Modal>
