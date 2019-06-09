@@ -58,7 +58,6 @@ class StudyModal extends Component {
 
   render(props) {
     const {slides} = this.props
-    console.log(slides)
     return (
       <div>
         <button onClick={this.openModal}>スライドに戻る</button>
