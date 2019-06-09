@@ -1,12 +1,10 @@
 import React from "react"
 import axios from 'axios'
 
-import PropTypes from 'prop-types'
-
-import StudyModal from './StudyModal/StudyModal'
+import SlideModal from './Slides/SlideModal'
 import AnswerSection from './AnswerSection/AnswerSection'
 
-class AccountingStudy extends React.Component {
+class Exercise extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,18 +27,10 @@ class AccountingStudy extends React.Component {
     return(
       <div>
         <AnswerSection />
-        <StudyModal slides={slides} />
+        <SlideModal slides={slides} />
       </div>
     )
   }
 }
 
-AccountingStudy.defaultProps = {
-  name: ''
-}
-
-AccountingStudy.propTypes = {
-  name: PropTypes.string
-}
-
-export default AccountingStudy
+export default Exercise

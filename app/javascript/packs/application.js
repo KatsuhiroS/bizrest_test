@@ -7,7 +7,7 @@ import Top from '../src/components/Top/Top'
 import Subjects from '../src/components/Subjects'
 import Lessons from '../src/components/Lessons'
 import MypageEdit from '../src/components/MypageEdit/MypageEdit'
-import AccountingStudy from '../src/components/Exercises/AccountingStudy'
+import Exercise from '../src/components/Exercises'
 
 document.addEventListener('turbolinks:load', () => {
   const rootComponent = (() => {
@@ -23,7 +23,7 @@ document.addEventListener('turbolinks:load', () => {
       case '/accounting/study/1/1':
         return (
           <DragDropContextProvider backend={HTML5Backend}>
-            <AccountingStudy />
+            <Exercise />
           </DragDropContextProvider>
         )
     }
