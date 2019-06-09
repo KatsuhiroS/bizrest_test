@@ -48,7 +48,7 @@ class Lessons extends React.Component {
                 <div style={{padding: '0 16px'}}>
                   <Button
                     className='lesson-start-btn'
-                    href='/accounting/study/1'
+                    href='/accounting/study/1/1'
                     variant='contained'
                     color='primary'
                     size='small'
