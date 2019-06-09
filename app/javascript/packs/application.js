@@ -20,7 +20,7 @@ document.addEventListener('turbolinks:load', () => {
         return <Subjects />
       case '/subjects/accounting':
         return <Lessons />
-      case '/accounting/study/1':
+      case '/accounting/study/1/1':
         return (
           <DragDropContextProvider backend={HTML5Backend}>
             <AccountingStudy />
