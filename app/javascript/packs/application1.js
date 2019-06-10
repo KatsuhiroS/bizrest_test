@@ -1,0 +1,51 @@
+import React from 'react'
+import { render } from 'react-dom'
+import { DragDropContextProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
+import Top from '../src/components/Top/Top'
+import Subjects from '../src/components/Subjects'
+import Lessons from '../src/components/Lessons'
+import MypageEdit from '../src/components/MypageEdit/MypageEdit'
+import Exercise from '../src/components/Exercises'
+import { BrowserRouter } from "react-router-dom"
+
+document.addEventListener('turbolinks:load', () => {
+  const rootComponent = (() => {
+    switch (location.pathname) {
+      case '/':
+        return <Top />
+      case '/mypage/edit':
+        return <MypageEdit />
+      case '/subjects':
+        return <Subjects />
+      case '/subjects/accounting':
+        return <Lessons />
+      case '/accounting/study/1/1':
+        return (
+          <DragDropContextProvider backend={HTML5Backend}>
+            <Exercise />
+          </DragDropContextProvider>
+        )
+      case '/accounting/study/1/2':
+        return (
+          <DragDropContextProvider backend={HTML5Backend}>
+            <Exercise />
+          </DragDropContextProvider>
+        )
+      case '/accounting/study/1/3':
+        return (
+          <DragDropContextProvider backend={HTML5Backend}>
+            <Exercise />
+          </DragDropContextProvider>
+        )
+    }
+  })()
+
+  if (!rootComponent) return null
+
+  render (
+    rootComponent,
+    document.getElementById('root'),
+  )
+})
