@@ -15,11 +15,11 @@ Rails.application.routes.draw do
 
   resources :subjects, only: [:index]
   get 'subjects/:slug', to: 'subjects#show'
-  get '/:slug/study/:order', to: 'lessons#show'
+  get '/:slug/study/:lesson_order/:chapter_order', to: 'lessons#show'
 
   namespace :api, { format: :json } do
-    resources :subjects, only: [:index], param: :slug do
-      resources :lessons, only: [:index], controller: 'subjects/lessons'
-    end
+    resources :subjects, only: [:index]
+    get '/subjects/:slug', to: 'lessons#index'
+    get '/:slug/study/:lesson_order/:chapter_order', to: 'lessons#show'
   end
 end

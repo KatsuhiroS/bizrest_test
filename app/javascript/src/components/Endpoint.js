@@ -13,5 +13,5 @@ export function subjectLessonIndex(subjectSlug) {
 }
 
 export function apiLessonsIndex(subjectSlug) {
-  return `${domain}/api/subjects/${subjectSlug}/lessons`
+  return `${domain}/api/subjects/${subjectSlug}`
 }

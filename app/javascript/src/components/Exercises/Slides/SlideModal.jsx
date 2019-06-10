@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { render } from "react-dom";
 import Modal from "react-modal";
-import StudySlide from "../StudySlide/StudySlide"
+import Slide from "./Slide"
 
 const customStyles = {
   content: {
@@ -19,7 +19,7 @@ const customStyles = {
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 
-class StudyModal extends Component {
+class SlideModal extends Component {
   constructor(props) {
     super(props);
 
@@ -57,7 +57,7 @@ class StudyModal extends Component {
   }
 
   render(props) {
-    // console.log(this.state.currentSlide)
+    const {slides} = this.props
     return (
       <div>
         <button onClick={this.openModal}>スライドに戻る</button>
@@ -69,8 +69,9 @@ class StudyModal extends Component {
           contentLabel="Example Modal"
         >
           <button onClick={this.closeModal}>スライドを閉じる</button>
-          <StudySlide
+          <Slide
             currentSlide={this.state.currentSlide}
+            slides={slides}
             handleChangeSlide={this.handleChangeSlide.bind(this)}
           />
         </Modal>
@@ -79,4 +80,4 @@ class StudyModal extends Component {
   }
 }
 
-export default StudyModal
+export default SlideModal
