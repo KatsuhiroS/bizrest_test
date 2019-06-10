@@ -16,19 +16,20 @@ document.addEventListener('turbolinks:load', () => {
     return (
       <BrowserRouter>
         <div>
-          {routes.map((route) => (
+          {routes.map((route, index) => (
             <Route
               path={route.path}
               exact={route.exact}
-              component={route.main()}
+              component={route.main}
+              key={index}
             />
           ))}
         </div>
       </BrowserRouter>
     )
   })()
-  //
-  // if (!rootComponent) return null
+
+  if (!rootComponent) return null
 
   render (
     rootComponent,

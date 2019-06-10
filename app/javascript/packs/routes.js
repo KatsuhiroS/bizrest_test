@@ -13,21 +13,21 @@ export const routes = [
   {
     path: "/",
     exact: true,
-    main: () => Top
+    main: () => <Top />
   },
   {
     path: "/subjects",
     exact: true,
-    main: () => Subjects
+    main: () => <Subjects />
   },
   {
     path: "/subjects/accounting",
     exact: true,
-    main: () => Lessons
+    main: () => <Lessons />
   },
   {
     path: "/accounting/study/:id/:id",
     exact: true,
-    main: () => Exercise
+    main: () => <Exercise />
   }
 ]
