@@ -8,25 +8,25 @@ import Subjects from '../src/components/Subjects'
 import Lessons from '../src/components/Lessons'
 import MypageEdit from '../src/components/MypageEdit/MypageEdit'
 import Exercise from '../src/components/Exercises'
+import { routes } from './routes.js'
+import { BrowserRouter , Route } from 'react-router-dom'
 
 document.addEventListener('turbolinks:load', () => {
   const rootComponent = (() => {
-    switch (location.pathname) {
-      case '/':
-        return <Top />
-      case '/mypage/edit':
-        return <MypageEdit />
-      case '/subjects':
-        return <Subjects />
-      case '/subjects/accounting':
-        return <Lessons />
-      case '/accounting/study/1/1':
-        return (
-          <DragDropContextProvider backend={HTML5Backend}>
-            <Exercise />
-          </DragDropContextProvider>
-        )
-    }
+    return (
+      <BrowserRouter>
+        <div>
+          {routes.map((route, index) => (
+            <Route
+              path={route.path}
+              exact={route.exact}
+              component={route.main}
+              key={index}
+            />
+          ))}
+        </div>
+      </BrowserRouter>
+    )
   })()
 
   if (!rootComponent) return null
