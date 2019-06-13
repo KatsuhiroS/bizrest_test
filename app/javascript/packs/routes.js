@@ -26,7 +26,7 @@ export const routes = [
     main: () => <Lessons />
   },
   {
-    path: "/accounting/study/:id/:id",
+    path: "/accounting/study/:lesson_id/:chapter_id",
     exact: true,
     main: () => <Exercise />
   }
