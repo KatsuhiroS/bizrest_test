@@ -2,7 +2,7 @@ import React from "react"
 import axios from 'axios'
 
 import SlideModal from './Slides/SlideModal'
-import AnswerSection from './AnswerSection/AnswerSection'
+import WorkArea from './WorkArea'
 
 class Exercise extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Exercise extends React.Component {
     const {slides} = this.state
     return(
       <div>
-        <AnswerSection />
+        <WorkArea />
         <SlideModal slides={slides} />
       </div>
     )
