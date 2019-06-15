@@ -1,60 +1,40 @@
-import React, { Component } from "react";
-import { DropTarget, ConnectDropTarget, DropTargetMonitor } from "react-dnd";
+import React from 'react'
+import { useDrop } from 'react-dnd'
 
-const style: React.CSSProperties = {
+const AccountSpace = ({accept, lastDroppedItem, onDrop}) => {
+  const [{ isOver, canDrop }, drop] = useDrop({
+    accept,
+    drop: onDrop,
+    collect: monitor => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
+    }),
+  })
+
+  const isActive = isOver && canDrop
+  let backgroundColor = "#222";
+  if (isActive) {
+    backgroundColor = "darkgreen";
+  } else if (canDrop) {
+    backgroundColor = "darkkhaki";
+  }
+
+  return (
+    <div ref={drop} style={Object.assign({}, style, { backgroundColor })} >
+      {lastDroppedItem && <p>{lastDroppedItem.name}</p>}
+    </div>
+  )
+}
+
+const style = {
   height: "3.5rem",
   width: "12rem",
-  // marginRight: "1.5rem",
   marginBottom: "1.5rem",
   color: "white",
-  // padding: "1rem",
   textAlign: "center",
   fontSize: "1rem",
   lineHeight: "normal",
   float: "left"
-};
-
-const accountSpaceTarget = {
-  drop(props: AccountSpaceProps, monitor: DropTargetMonitor) {
-    props.onDrop(monitor.getItem());
-  }
-};
-
-class AccountSpace extends Component<AccountSpaceProps> {
-  render() {
-    const {
-      accepts,
-      isOver,
-      canDrop,
-      connectDropTarget,
-      lastDroppedItem
-    } = this.props;
-    console.log(this.props)
-    const isActive = isOver && canDrop;
-    let backgroundColor = "#222";
-    if (isActive) {
-      backgroundColor = "darkgreen";
-    } else if (canDrop) {
-      backgroundColor = "darkkhaki";
-    }
-
-    return (
-      connectDropTarget &&
-      connectDropTarget(
-        <div style={{ ...style, backgroundColor }}>
-          {lastDroppedItem && <p>{lastDroppedItem}</p>}
-        </div>
-      )
-    );
-  }
 }
 
-export default DropTarget(
-  (props: AccountSpaceProps) => props.accepts,
-  accountSpaceTarget,
-  (connect, monitor) => ({
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver(),
-    canDrop: monitor.canDrop()
-  })
-)(AccountSpace);
+export default AccountSpace

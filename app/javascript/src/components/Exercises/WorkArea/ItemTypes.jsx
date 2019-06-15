@@ -1,3 +1,3 @@
 export default {
-  ACCOUNTNAME: "acountName"
+  ACCOUNTNAME: "accountName"
 };

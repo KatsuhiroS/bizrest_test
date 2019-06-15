@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback } from 'react'
 
-import AccountSpace from "./AccountSpace";
-import AccountChoice from "./AccountChoice";
-import ItemTypes from "./ItemTypes";
-import AmountInput from "./AmountInput";
-import JudgementButton from "./JudgementButton";
-const update = require("immutability-helper");
+import AccountSpace from './AccountSpace'
+import AccountChoice from './AccountChoice'
+import ItemTypes from './ItemTypes'
+import AmountInput from './AmountInput'
+import JudgementButton from './JudgementButton'
+import update from 'immutability-helper'
 
 const WorkArea = () => {
   const [dndAnswerSpaces, setDndAnswerSpaces] = useState([
@@ -37,7 +37,7 @@ const WorkArea = () => {
       setdroppedChoiceNames(
         update(droppedChoiceNames, name ? { $push: [name] } : { $push: [] })
       )
-      setDndAnswerSpace(
+      setDndAnswerSpaces(
         update(dndAnswerSpaces, {
           [index]: {
             lastDroppedItem: {
@@ -53,11 +53,9 @@ const WorkArea = () => {
   const inputAmount = (input) => {
     setAmount(
       update(amount, {
-        amount: {
-          [input.index]: {
-            input: {
-              $set: amount
-            }
+        [input.index]: {
+          input: {
+            $set: amount
           }
         }
       })
@@ -73,10 +71,9 @@ const WorkArea = () => {
         {dndAnswerSpaces.map(({ accepts, lastDroppedItem }, index) => (
           <div key={index} style={{ float: "left" }}>
             <AccountSpace
-              accepts={accepts}
+              accept={accepts}
               lastDroppedItem={lastDroppedItem}
               onDrop={item => handleDrop(index, item)}
-              accountSpaceIndex={index}
             />
             <AmountInput
               amountInput={inputAmount}
