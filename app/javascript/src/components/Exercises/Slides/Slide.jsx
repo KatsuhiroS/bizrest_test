@@ -32,6 +32,7 @@ export default class Slide extends Component {
     const fontTitleDefault = {fontFamily:'Hiragino Maru Gothic Pro'};
     const fontTextDefault = {fontFamily:'Hiragino Maru Gothic Pro', fontSize: 20};
     const fontBrown = {fontWeight:'bold', color: '#a0522d'};
+    const slideImage = {width: '60%', padding:15, margin: 'auto'}
     return (
       <div>
         <Slider ref={c => (this.slider = c)} {...settings}>
@@ -40,6 +41,7 @@ export default class Slide extends Component {
               <div key={index}>
                 <h2 style={fontTitleDefault}>{slide.title}</h2>
                 <div style={fontTextDefault}>{slide.content}</div>
+                <img style={slideImage} src={slide.image} />
               </div>
             )
           })}
