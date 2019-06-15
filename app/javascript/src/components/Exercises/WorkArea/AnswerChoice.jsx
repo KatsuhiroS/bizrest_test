@@ -1,7 +1,7 @@
 import React from 'react'
 import {useDrag} from 'react-dnd'
 
-const AccountChoice = ({name, type, isDropped}) => {
+const AnswerChoice = ({name, type, isDropped}) => {
   const [{opacity}, drag] = useDrag({
     item: {name, type},
     collect: monitor => ({
@@ -23,4 +23,4 @@ const style = {
   float: "left"
 }
 
-export default AccountChoice
+export default AnswerChoice

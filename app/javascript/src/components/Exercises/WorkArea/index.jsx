@@ -1,30 +1,30 @@
 import React, { useState, useCallback } from 'react'
 
-import AccountSpace from './AccountSpace'
-import AccountChoice from './AccountChoice'
+import AnswerSpace from './AnswerSpace'
+import AnswerChoice from './AnswerChoice'
+import AnswerInput from './AnswerInput'
 import ItemTypes from './ItemTypes'
-import AmountInput from './AmountInput'
 import JudgementButton from './JudgementButton'
 import update from 'immutability-helper'
 
 const WorkArea = () => {
-  const [dndAnswerSpaces, setDndAnswerSpaces] = useState([
+  const [answerSpaces, setAnswerSpaces] = useState([
     { accepts: [ItemTypes.ACCOUNTNAME], lastDroppedItem: null },
     { accepts: [ItemTypes.ACCOUNTNAME], lastDroppedItem: null }
   ])
 
-  const [choices] = useState([
+  const [answerChoices] = useState([
     { name: "現金", type: ItemTypes.ACCOUNTNAME },
     { name: "売上高", type: ItemTypes.ACCOUNTNAME },
     { name: "売掛金", type: ItemTypes.ACCOUNTNAME }
   ])
 
-  const [droppedChoiceNames, setdroppedChoiceNames] = useState([])
+  const [droppedChoiceNames, setDroppedChoiceNames] = useState([])
 
-  const [amount, setAmount] = useState([
-    {input: null},
-    {input: null},
-    {input: null}
+  const [answerInput, setAnswerInput] = useState([
+    {amount: null},
+    {amount: null},
+    {amount: null}
   ])
 
   const isDropped = (choiceName) => {
@@ -34,11 +34,11 @@ const WorkArea = () => {
   const handleDrop = useCallback(
     (index, item) => {
       const {name} = item
-      setdroppedChoiceNames(
+      setDroppedChoiceNames(
         update(droppedChoiceNames, name ? { $push: [name] } : { $push: [] })
       )
-      setDndAnswerSpaces(
-        update(dndAnswerSpaces, {
+      setAnswerSpaces(
+        update(answerSpaces, {
           [index]: {
             lastDroppedItem: {
               $set: item,
@@ -47,15 +47,15 @@ const WorkArea = () => {
         }),
       )
     },
-    [droppedChoiceNames, dndAnswerSpaces]
+    [droppedChoiceNames, answerSpaces]
   )
 
-  const inputAmount = (input) => {
-    setAmount(
-      update(amount, {
-        [input.index]: {
-          input: {
-            $set: amount
+  const inputAnswer = (amount) => {
+    setAnswerInput(
+      update(answerInput, {
+        [amount.index]: {
+          amount: {
+            $set: answerInput
           }
         }
       })
@@ -68,23 +68,23 @@ const WorkArea = () => {
       <h2>500円の商品を売り上げ、500円を現金で受け取りました。</h2>
       <h2>この取引の仕訳を起票しましょう。</h2>
       <div style={{ overflow: "hidden", clear: "both", float: "left" }}>
-        {dndAnswerSpaces.map(({ accepts, lastDroppedItem }, index) => (
+        {answerSpaces.map(({ accepts, lastDroppedItem }, index) => (
           <div key={index} style={{ float: "left" }}>
-            <AccountSpace
+            <AnswerSpace
               accept={accepts}
               lastDroppedItem={lastDroppedItem}
               onDrop={item => handleDrop(index, item)}
             />
-            <AmountInput
-              amountInput={inputAmount}
-              amountInputIndex={index}
+            <AnswerInput
+              answerInput={inputAnswer}
+              answerInputIndex={index}
             />
           </div>
         ))}
       </div>
       <div style={{ overflow: "hidden", clear: "both" }}>
-        {choices.map(({ name, type }, index) => (
-          <AccountChoice
+        {answerChoices.map(({ name, type }, index) => (
+          <AnswerChoice
             name={name}
             type={type}
             isDropped={isDropped(name)}
@@ -94,8 +94,8 @@ const WorkArea = () => {
       </div>
       <div>
         <JudgementButton
-          amount={amount}
-          accountSpaces={dndAnswerSpaces}
+          amount={answerInput}
+          answerSpaces={answerSpaces}
         />
       </div>
     </div>

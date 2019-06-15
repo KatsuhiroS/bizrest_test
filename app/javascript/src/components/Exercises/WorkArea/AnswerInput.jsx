@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
-export default class AmountInput extends Component {
+export default class AnswerInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,9 +27,5 @@ export default class AmountInput extends Component {
     const index = this.props.amountInputIndex;
     this.setState({ index: index, amount: amount });
     this.props.amountInput({ index, amount });
-  };
+  }
 }
-
-AmountInput.propTypes = {
-  name: PropTypes.number
-};

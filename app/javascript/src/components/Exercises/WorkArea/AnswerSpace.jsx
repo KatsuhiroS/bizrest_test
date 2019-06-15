@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 
-const AccountSpace = ({accept, lastDroppedItem, onDrop}) => {
+const AnswerSpace = ({accept, lastDroppedItem, onDrop}) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept,
     drop: onDrop,
@@ -37,4 +37,4 @@ const style = {
   float: "left"
 }
 
-export default AccountSpace
+export default AnswerSpace
