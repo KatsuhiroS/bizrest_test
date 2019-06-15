@@ -1,7 +1,5 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { DragDropContextProvider } from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
 
 import Top from '../src/components/Top/Top'
 import Subjects from '../src/components/Subjects'
