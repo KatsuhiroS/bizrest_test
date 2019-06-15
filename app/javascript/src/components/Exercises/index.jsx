@@ -1,6 +1,6 @@
 import React from "react"
 import axios from 'axios'
-
+import withDragDropContext from '../../lib/withDragDropContext'
 import SlideModal from './Slides/SlideModal'
 import WorkArea from './WorkArea'
 
@@ -33,4 +33,4 @@ class Exercise extends React.Component {
   }
 }
 
-export default Exercise
+export default withDragDropContext(Exercise)
