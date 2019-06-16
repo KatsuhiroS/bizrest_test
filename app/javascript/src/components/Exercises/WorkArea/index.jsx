@@ -67,9 +67,9 @@ const WorkArea = () => {
       <h1>問題</h1>
       <h2>500円の商品を売り上げ、500円を現金で受け取りました。</h2>
       <h2>この取引の仕訳を起票しましょう。</h2>
-      <div style={{ overflow: "hidden", clear: "both", float: "left" }}>
+      <div style={{display: 'flex'}}>
         {answerSpaces.map(({ accepts, lastDroppedItem }, index) => (
-          <div key={index} style={{ float: "left" }}>
+          <div key={index} style={{display: 'flex'}}>
             <AnswerSpace
               accept={accepts}
               lastDroppedItem={lastDroppedItem}
@@ -82,7 +82,7 @@ const WorkArea = () => {
           </div>
         ))}
       </div>
-      <div style={{ overflow: "hidden", clear: "both" }}>
+      <div style={{display: 'flex'}}>
         {answerChoices.map(({ name, type }, index) => (
           <AnswerChoice
             name={name}

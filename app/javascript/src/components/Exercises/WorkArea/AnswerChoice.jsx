@@ -9,7 +9,9 @@ const AnswerChoice = ({name, type, isDropped}) => {
     }),
   })
   return (
-    <div ref={drag} style={Object.assign({}, style, { opacity })}>{name}</div>
+    <div ref={drag} style={Object.assign({}, style, { opacity })}>
+      {name}
+    </div>
   )
 }
 
@@ -20,7 +22,6 @@ const style = {
   marginRight: "1.5rem",
   marginBottom: "1.5rem",
   cursor: "move",
-  float: "left"
 }
 
 export default AnswerChoice

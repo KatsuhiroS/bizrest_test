@@ -11,7 +11,7 @@ const AnswerInput = (props) => {
   }
 
   return (
-    <div style={{ float: "left" }}>
+    <div>
       <input
         type="number"
         value={amount}
