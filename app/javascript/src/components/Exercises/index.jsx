@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import axios from 'axios'
 import withDragDropContext from '../../lib/withDragDropContext'
 import SlideModal from './Slides/SlideModal'
@@ -8,25 +8,27 @@ class Exercise extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-     slides: []
+     slides: [],
+     instruction: [],
     }
 
-    this.fetchSlides()
+    this.fetchExerciseData()
   }
 
-  fetchSlides() {
+  fetchExerciseData() {
     axios.get(`/api/${location.pathname}`).then((res) => {
-      this.setState(
-        { slides: res.data }
-      )
+      this.setState({
+        slides: res.data.slides,
+        instruction: res.data.instruction,
+      })
     })
   }
 
   render() {
-    const {slides} = this.state
+    const {slides, instruction} = this.state
     return(
       <div>
-        <WorkArea />
+        <WorkArea instruction={instruction} />
         <SlideModal slides={slides} />
       </div>
     )

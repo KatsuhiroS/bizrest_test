@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react'
 
+import Instruction from './Instruction'
 import AnswerSpace from './AnswerSpace'
 import AnswerChoice from './AnswerChoice'
 import AnswerInput from './AnswerInput'
@@ -7,7 +8,7 @@ import ItemTypes from './ItemTypes'
 import JudgementButton from './JudgementButton'
 import update from 'immutability-helper'
 
-const WorkArea = () => {
+const WorkArea = (props) => {
   const [answerSpaces, setAnswerSpaces] = useState([
     { accepts: [ItemTypes.ACCOUNTNAME], lastDroppedItem: null },
     { accepts: [ItemTypes.ACCOUNTNAME], lastDroppedItem: null }
@@ -64,9 +65,7 @@ const WorkArea = () => {
 
   return (
     <div>
-      <h1>問題</h1>
-      <h2>500円の商品を売り上げ、500円を現金で受け取りました。</h2>
-      <h2>この取引の仕訳を起票しましょう。</h2>
+      <Instruction instruction={props.instruction} />
       <div style={{display: 'flex'}}>
         {answerSpaces.map(({ accepts, lastDroppedItem }, index) => (
           <div key={index} style={{display: 'flex'}}>
