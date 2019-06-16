@@ -4,20 +4,13 @@ import Instruction from './Instruction'
 import AnswerSpace from './AnswerSpace'
 import AnswerChoice from './AnswerChoice'
 import AnswerInput from './AnswerInput'
-import ItemTypes from './ItemTypes'
 import JudgementButton from './JudgementButton'
 import update from 'immutability-helper'
 
 const WorkArea = (props) => {
   const [answerSpaces, setAnswerSpaces] = useState([
-    { accepts: [ItemTypes.ACCOUNTNAME], lastDroppedItem: null },
-    { accepts: [ItemTypes.ACCOUNTNAME], lastDroppedItem: null }
-  ])
-
-  const [answerChoices] = useState([
-    { name: "現金", type: ItemTypes.ACCOUNTNAME },
-    { name: "売上高", type: ItemTypes.ACCOUNTNAME },
-    { name: "売掛金", type: ItemTypes.ACCOUNTNAME }
+    { accepts: 'accountTitle', lastDroppedItem: null },
+    { accepts: 'accountTitle', lastDroppedItem: null }
   ])
 
   const [droppedChoiceNames, setDroppedChoiceNames] = useState([])
@@ -82,10 +75,10 @@ const WorkArea = (props) => {
         ))}
       </div>
       <div style={{display: 'flex'}}>
-        {answerChoices.map(({ name, type }, index) => (
+        {props.answerChoices.map(({ name, item_type }, index) => (
           <AnswerChoice
             name={name}
-            type={type}
+            type={item_type}
             isDropped={isDropped(name)}
             key={index}
           />
