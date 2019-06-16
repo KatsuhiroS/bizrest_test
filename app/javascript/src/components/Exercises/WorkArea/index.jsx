@@ -50,12 +50,12 @@ const WorkArea = () => {
     [droppedChoiceNames, answerSpaces]
   )
 
-  const inputAnswer = (amount) => {
+  const inputAnswer = (amount, index) => {
     setAnswerInput(
       update(answerInput, {
-        [amount.index]: {
+        [index]: {
           amount: {
-            $set: answerInput
+            $set: amount,
           }
         }
       })
@@ -76,7 +76,7 @@ const WorkArea = () => {
               onDrop={item => handleDrop(index, item)}
             />
             <AnswerInput
-              answerInput={inputAnswer}
+              inputAnswer={inputAnswer}
               answerInputIndex={index}
             />
           </div>
@@ -94,8 +94,8 @@ const WorkArea = () => {
       </div>
       <div>
         <JudgementButton
-          amount={answerInput}
           answerSpaces={answerSpaces}
+          answerInput={answerInput}
         />
       </div>
     </div>
