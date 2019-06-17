@@ -19,6 +19,29 @@ Chapter.create(
   order: 1
 )
 
+Instruction.create(
+  text: '500円の商品を売り上げ、500円を現金で受け取りました。この取引の仕訳を起票しましょう。',
+  chapter_id: 1,
+)
+
+AnswerChoice.create(
+  name: '売上高',
+  item_type: 'accountTitle',
+  chapter_id: 1,
+)
+
+AnswerChoice.create(
+  name: '売掛金',
+  item_type: 'accountTitle',
+  chapter_id: 1,
+)
+
+AnswerChoice.create(
+  name: '現金',
+  item_type: 'accountTitle',
+  chapter_id: 1,
+)
+
 Chapter.create(
   title: '会計入門2',
   lesson_id: 1,
