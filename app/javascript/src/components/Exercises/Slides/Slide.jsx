@@ -1,17 +1,56 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import Slider from "react-slick"
+import Slider from "react-slick";
 
 export default class Slide extends Component {
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
+    this.backToSection = this.backToSection.bind(this);
+  }
+
+  // componentWillMount() {
+  //   window.addEventListener("hashchange", this.backToSection, false);
+  // }
+
+  componentDidMount() {
+    window.addEventListener("hashchange", this.backToSection, false);
+  }
+
+  componentWillUnmount() {
+    // if (window) window.removeEventListener("hashchange", this.backToSection, false);
+  }
+
+  componentDidUpdate(){
+    const {
+      backToSection,
+    } = this;
+    window.onpopstate  = (e) => backToSection(e);
+  }
+
+  backToSection(e) {
+    if (e) e.preventDefault();
+    // let pathname = window.location.pathname;
+    // const base = pathname.replace(/\d+$/, '');
+    window.location.replace('/');
   }
   next(props) {
+    const {
+      currentSlide,
+    } = this.props;
+    let pathname = window.location.pathname;
+    const base = pathname.replace(/\d+$/, '');
+    window.history.pushState(null,  "page " + (currentSlide + 1), base + (currentSlide + 1));
     this.slider.slickNext(props);
   }
   previous(props) {
+    const {
+      currentSlide,
+    } = this.props;
+    let pathname = window.location.pathname;
+    const base = pathname.replace(/\d+$/, '');
+    window.history.pushState(null,  "page " + (currentSlide - 1), base + (currentSlide == 0 ? currentSlide : currentSlide - 1));
     this.slider.slickPrev(props);
   }
 
