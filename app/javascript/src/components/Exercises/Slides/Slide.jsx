@@ -39,6 +39,7 @@ export default class Slide extends Component {
           {this.props.slides.map((slide, index) => {
             return (
               <div key={index}>
+                <div>{index}</div>
                 <h2 style={fontTitleDefault}>{slide.title}</h2>
                 <div style={fontTextDefault}>{slide.content}</div>
                 <img style={slideImage} src={slide.image} />
