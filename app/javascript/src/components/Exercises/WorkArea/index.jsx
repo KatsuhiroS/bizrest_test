@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 
 import Instruction from './Instruction'
+import AnswerColumn from './AnswerColumn'
 import AnswerSpace from './AnswerSpace'
 import AnswerChoice from './AnswerChoice'
 import AnswerInput from './AnswerInput'
@@ -56,23 +57,26 @@ const WorkArea = (props) => {
     )
   }
 
+  // {answerSpaces.map(({ accepts, lastDroppedItem }, index) => (
+  //         <div key={index} style={{display: 'flex'}}>
+  //           <AnswerSpace
+  //             accept={accepts}
+  //             lastDroppedItem={lastDroppedItem}
+  //             onDrop={item => handleDrop(index, item)}
+  //           />
+  //           <AnswerInput
+  //             inputAnswer={inputAnswer}
+  //             answerInputIndex={index}
+  //           />
+  //         </div>
+  //       ))}
   return (
     <div>
       <Instruction instruction={props.instruction} />
       <div style={{display: 'flex'}}>
-        {answerSpaces.map(({ accepts, lastDroppedItem }, index) => (
-          <div key={index} style={{display: 'flex'}}>
-            <AnswerSpace
-              accept={accepts}
-              lastDroppedItem={lastDroppedItem}
-              onDrop={item => handleDrop(index, item)}
-            />
-            <AnswerInput
-              inputAnswer={inputAnswer}
-              answerInputIndex={index}
-            />
-          </div>
-        ))}
+        {props.answerColumns.map((answerColumn) => {
+          return <AnswerColumn answerColumn={answerColumn} />
+        })}
       </div>
       <div style={{display: 'flex'}}>
         {props.answerChoices.map(({ name, item_type }, index) => (

@@ -16,11 +16,13 @@ class Api::LessonsController < Api::ApplicationController
     chapter = lesson.chapters.find_by(order: params[:chapter_order])
     slides = chapter.slides
     instruction = chapter.instruction
+    answer_columns = chapter.answer_columns.as_json(include: [:answer_spaces])
     answer_choices = chapter.answer_choices
 
     render json: {
       slides: slides,
       instruction: instruction,
+      answer_columns: answer_columns,
       answer_choices: answer_choices,
     }
   end
