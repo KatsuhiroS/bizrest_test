@@ -1,11 +1,11 @@
 import React from 'react'
+import AnswerSpace from './AnswerSpace'
 
 const AnswerColumn = (props) => {
-  console.log(props.answerColumn.answer_spaces)
   return (
     <div>
-      {props.answerColumn.answer_spaces.map((hoge) => {
-        return <div>{hoge.id}</div>
+      {props.answerColumn.answer_spaces.map((answerSpace) => {
+        return <AnswerSpace accept='accountTitle' />
       })}
     </div>
   )

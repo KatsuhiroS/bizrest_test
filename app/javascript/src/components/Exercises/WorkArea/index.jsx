@@ -75,7 +75,12 @@ const WorkArea = (props) => {
       <Instruction instruction={props.instruction} />
       <div style={{display: 'flex'}}>
         {props.answerColumns.map((answerColumn) => {
-          return <AnswerColumn answerColumn={answerColumn} />
+          return (
+            <AnswerColumn
+              answerColumn={answerColumn}
+              answerSpaces={answerSpaces}
+            />
+          )
         })}
       </div>
       <div style={{display: 'flex'}}>
