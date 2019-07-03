@@ -27,22 +27,15 @@ const WorkArea = (props) => {
   }
 
   const handleDrop = useCallback(
-    (index, item) => {
+    (item) => {
       const {name} = item
       setDroppedChoiceNames(
         update(droppedChoiceNames, name ? { $push: [name] } : { $push: [] })
       )
-      setAnswerSpaces(
-        update(answerSpaces, {
-          [index]: {
-            lastDroppedItem: {
-              $set: item,
-            },
-          },
-        }),
-      )
+      // ここでaxios使ってAnswerSpaceのuser_answerにnameの値を入れる
+      //userAnswerカラムはlastDroppedItemに名前を変更したい
     },
-    [droppedChoiceNames, answerSpaces]
+    [droppedChoiceNames]
   )
 
   const inputAnswer = (amount, index) => {
@@ -74,11 +67,12 @@ const WorkArea = (props) => {
     <div>
       <Instruction instruction={props.instruction} />
       <div style={{display: 'flex'}}>
-        {props.answerColumns.map((answerColumn) => {
+        {props.answerColumns.map((answerColumn, index) => {
           return (
             <AnswerColumn
               answerColumn={answerColumn}
-              answerSpaces={answerSpaces}
+              onDrop={handleDrop}
+              key={index}
             />
           )
         })}
