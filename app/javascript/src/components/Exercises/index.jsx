@@ -31,7 +31,6 @@ class Exercise extends React.Component {
 
   render() {
     const {slides, instruction, answerColumns, answerChoices} = this.state
-    console.log(answerColumns)
     return(
       <div>
         <WorkArea

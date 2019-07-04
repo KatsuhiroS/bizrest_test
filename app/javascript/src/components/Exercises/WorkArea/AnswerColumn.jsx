@@ -8,8 +8,8 @@ const AnswerColumn = (props) => {
         return (
           <AnswerSpace
             accept='accountTitle'
-            lastDroppedItem={answerSpace.userAnswer}
-            onDrop={item => props.onDrop(item)}
+            lastDroppedItem=''
+            onDrop={item => props.onDrop(item, answerSpace.id)}
             key={index}
           />
         )

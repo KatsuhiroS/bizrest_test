@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     resources :subjects, only: [:index]
     get '/subjects/:slug', to: 'lessons#index'
     get '/:slug/study/:lesson_order/:chapter_order', to: 'lessons#show'
+
+    resources :answer_spaces, only: [:update]
   end
 end

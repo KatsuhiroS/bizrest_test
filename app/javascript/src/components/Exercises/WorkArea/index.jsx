@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import axios from 'axios'
 
 import Instruction from './Instruction'
 import AnswerColumn from './AnswerColumn'
@@ -9,11 +10,12 @@ import JudgementButton from './JudgementButton'
 import update from 'immutability-helper'
 
 const WorkArea = (props) => {
-  const [answerSpaces, setAnswerSpaces] = useState([
-    { accepts: 'accountTitle', lastDroppedItem: null },
-    { accepts: 'accountTitle', lastDroppedItem: null }
-  ])
+  // const [answerSpaces, setAnswerSpaces] = useState([
+  //   { accepts: 'accountTitle', lastDroppedItem: null },
+  //   { accepts: 'accountTitle', lastDroppedItem: null }
+  // ])
 
+  const [userAnswers, setUserAnswers] = useState([])
   const [droppedChoiceNames, setDroppedChoiceNames] = useState([])
 
   const [answerInput, setAnswerInput] = useState([
@@ -27,13 +29,22 @@ const WorkArea = (props) => {
   }
 
   const handleDrop = useCallback(
-    (item) => {
+    (item, answerSpaceId) => {
       const {name} = item
       setDroppedChoiceNames(
         update(droppedChoiceNames, name ? { $push: [name] } : { $push: [] })
       )
-      // ここでaxios使ってAnswerSpaceのuser_answerにnameの値を入れる
-      //userAnswerカラムはlastDroppedItemに名前を変更したい
+      axios({
+        method: 'put',
+        url: `/api/answer_spaces/${answerSpaceId}`,
+        data: {
+          lastDroppedItemName: name
+        }
+      }).then((res) => {
+        setUserAnswers(
+          update(userAnswers, res.data ? { $push: [res.data.answer_space] } : { $push: [] })
+        )
+      })
     },
     [droppedChoiceNames]
   )
@@ -72,6 +83,7 @@ const WorkArea = (props) => {
             <AnswerColumn
               answerColumn={answerColumn}
               onDrop={handleDrop}
+              userAnswers={userAnswers}
               key={index}
             />
           )
@@ -89,7 +101,6 @@ const WorkArea = (props) => {
       </div>
       <div>
         <JudgementButton
-          answerSpaces={answerSpaces}
           answerInput={answerInput}
         />
       </div>
