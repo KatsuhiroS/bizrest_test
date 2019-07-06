@@ -34,6 +34,7 @@ const style = {
   textAlign: "center",
   fontSize: "1rem",
   lineHeight: "normal",
+  margin: '20px',
 }
 
 export default AnswerSpace

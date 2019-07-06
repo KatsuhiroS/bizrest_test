@@ -10,6 +10,7 @@ class Exercise extends React.Component {
     this.state = {
      slides: [],
      instruction: [],
+     answerColumns: [],
      answerChoices: [],
     }
 
@@ -21,17 +22,20 @@ class Exercise extends React.Component {
       this.setState({
         slides: res.data.slides,
         instruction: res.data.instruction,
+        answerColumns: res.data.answer_columns,
         answerChoices: res.data.answer_choices,
       })
     })
   }
+  
 
   render() {
-    const {slides, instruction, answerChoices} = this.state
+    const {slides, instruction, answerColumns, answerChoices} = this.state
     return(
       <div>
         <WorkArea
           instruction={instruction}
+          answerColumns={answerColumns}
           answerChoices={answerChoices}
         />
         <SlideModal slides={slides} />

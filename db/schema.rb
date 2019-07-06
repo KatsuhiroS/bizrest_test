@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_114216) do
+ActiveRecord::Schema.define(version: 2019_07_03_130043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 2019_06_16_114216) do
     t.string "name"
     t.string "item_type"
     t.integer "chapter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answer_columns", force: :cascade do |t|
+    t.integer "order"
+    t.integer "chapter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answer_spaces", force: :cascade do |t|
+    t.string "category"
+    t.string "user_answer"
+    t.integer "answer_column_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
