@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 
-const AnswerSpace = ({accept, lastDroppedItem, onDrop}) => {
+const AnswerSpace = ({accept, userAnswers, onDrop}) => {
+  console.log(userAnswers)
   const [{ isOver, canDrop }, drop] = useDrop({
     accept,
     drop: onDrop,
@@ -21,7 +22,7 @@ const AnswerSpace = ({accept, lastDroppedItem, onDrop}) => {
 
   return (
     <div ref={drop} style={Object.assign({}, style, { backgroundColor })} >
-      {lastDroppedItem && <p>{lastDroppedItem.name}</p>}
+      {userAnswers && <p>{userAnswers}</p>}
     </div>
   )
 }
