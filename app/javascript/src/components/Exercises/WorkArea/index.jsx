@@ -17,6 +17,7 @@ const WorkArea = (props) => {
 
   const [userAnswers, setUserAnswers] = useState([])
   const [droppedChoiceNames, setDroppedChoiceNames] = useState([])
+  console.log([droppedChoiceNames, setDroppedChoiceNames])
 
   const [answerInput, setAnswerInput] = useState([
     {amount: null},
@@ -31,6 +32,8 @@ const WorkArea = (props) => {
   const handleDrop = useCallback(
     (item, answerSpaceId) => {
       const {name} = item
+      // console.log(answerSpaceId)
+      // console.log(item)
       setDroppedChoiceNames(
         update(droppedChoiceNames, name ? { $push: [name] } : { $push: [] })
       )
@@ -41,6 +44,7 @@ const WorkArea = (props) => {
           lastDroppedItemName: name
         }
       }).then((res) => {
+        props.setAnswerHandle(res.data)
         setUserAnswers(
           update(userAnswers, res.data ? { $push: [res.data.answer_space] } : { $push: [] })
         )

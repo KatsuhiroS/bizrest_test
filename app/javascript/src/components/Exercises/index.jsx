@@ -17,6 +17,7 @@ class Exercise extends React.Component {
     this.fetchExerciseData()
   }
 
+
   fetchExerciseData() {
     axios.get(`/api/${location.pathname}`).then((res) => {
       this.setState({
@@ -27,7 +28,17 @@ class Exercise extends React.Component {
       })
     })
   }
-  
+
+  userAnswersSetState = (obj) => {
+
+    this.setState(() => {
+      this.state.answerColumns[obj.answer_space.answer_column_id-1].answer_spaces.filter((col) => col.id === obj.answer_space.id)[0].user_answer = obj.answer_space.user_answer
+    })
+    // this.setState({
+    //   this.answerColumns
+    // })
+  }
+
 
   render() {
     const {slides, instruction, answerColumns, answerChoices} = this.state
@@ -37,6 +48,7 @@ class Exercise extends React.Component {
           instruction={instruction}
           answerColumns={answerColumns}
           answerChoices={answerChoices}
+          setAnswerHandle={this.userAnswersSetState}
         />
         <SlideModal slides={slides} />
       </div>
