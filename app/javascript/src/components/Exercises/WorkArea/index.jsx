@@ -17,7 +17,6 @@ const WorkArea = (props) => {
 
   const [userAnswers, setUserAnswers] = useState([])
   const [droppedChoiceNames, setDroppedChoiceNames] = useState([])
-  console.log([droppedChoiceNames, setDroppedChoiceNames])
 
   const [answerInput, setAnswerInput] = useState([
     {amount: null},
