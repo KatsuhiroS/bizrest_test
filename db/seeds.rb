@@ -405,9 +405,181 @@ AnswerColumn.create(
   chapter_id: 2,
 )
 
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 3,
+)
+
+AnswerColumn.create(
+  order: 2,
+  chapter_id: 3,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 4,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 5,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 6,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 7,
+)
+
+AnswerColumn.create(
+  order: 2,
+  chapter_id: 7,
+)
+
+AnswerColumn.create(
+  order: 3,
+  chapter_id: 7,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 8,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 9,
+)
+
+AnswerColumn.create(
+  order: 2,
+  chapter_id: 9,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 10,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 11,
+)
+
+AnswerColumn.create(
+  order: 1,
+  chapter_id: 12,
+)
+
 AnswerSpace.create(
   category: '5分類以外',
   answer_column_id: 1,
+  chapter_id: 1,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 2,
+)
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 2,
+  chapter_id: 2,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 3,
+  chapter_id: 2,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 3,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 2,
+  chapter_id: 3,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 4,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 5,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 6,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 7,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 2,
+  chapter_id: 7,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 3,
+  chapter_id: 7,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 8,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 9,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 2,
+  chapter_id: 9,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 10,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 11,
+)
+
+AnswerSpace.create(
+  category: '5分類以外',
+  answer_column_id: 1,
+  chapter_id: 12,
 )
 
 Slide.create(
