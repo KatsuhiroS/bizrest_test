@@ -96,7 +96,7 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.7.1)
     erubis (2.7.0)
-    excon (0.64.0)
+    excon (0.71.0)
     execjs (2.7.0)
     ffi (1.9.25)
     ffi-compiler (1.0.1)
